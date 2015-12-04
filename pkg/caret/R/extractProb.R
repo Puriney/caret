@@ -20,12 +20,12 @@ extractProb <- function(models,
   if(!unkOnly) {
     trainX <- models[[1]]$trainingData[,!(colnames(models[[1]]$trainingData) %in% ".outcome")]
     trainY <- models[[1]]$trainingData$.outcome  
+      if(verbose) {
+        cat("Number of training samples:", length(trainY), "\n")
+        cat("Number of test samples:    ", length(testY), "\n\n")
+    }
   }
-  if(verbose)
-  {
-    cat("Number of training samples:", length(trainY), "\n")
-    cat("Number of test samples:    ", length(testY), "\n\n")
-  }
+
   
   
   predProb <- predClass <- obs <- modelName <- dataType <- objName <- NULL
